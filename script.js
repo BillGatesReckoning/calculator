@@ -13,6 +13,9 @@ const display = document.querySelector(".display")
 
 numberButtons.forEach(button => 
     button.addEventListener("click", (e) => {
+        if (e.currentTarget.textContent === ".") {
+            if (displayValue === "" || displayValue.includes(".")) return
+        }
         displayValue += `${e.currentTarget.textContent}`
         display.textContent = displayValue
         if (isNaN(numberA)) operatorWorks = true
