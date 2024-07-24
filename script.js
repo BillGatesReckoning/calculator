@@ -36,7 +36,7 @@ evaluationButton.addEventListener("click", () => {
         display.textContent = "You can't divide with zero!"
     }
     else {
-        display.textContent = operate(+numberA, +numberB, operator)
+        display.textContent = Math.round(operate(+numberA, +numberB, operator) * 1000) / 1000
     }
     numberA = NaN
     numberB = NaN
