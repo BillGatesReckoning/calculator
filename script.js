@@ -2,6 +2,21 @@ let numberA
 let numberB
 let operator
 
+let displayValue = ""
+
+const numberButtons = document.querySelectorAll(".numberButton")
+const display = document.querySelector(".display")
+
+numberButtons.forEach(button => 
+    button.addEventListener("click", (e) => {
+        displayValue += `${e.currentTarget.textContent}`
+        display.textContent = displayValue
+    }))
+
+
+
+
+
 function operate(numberA, numberB, operator) {
     switch(operator) {
         case "+":
