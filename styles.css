@@ -60,3 +60,16 @@ button {
     font-weight: 800;
     font-size: large;
 }
+
+button:hover {
+    background-color: lightblue;
+}
+
+#runAwayButton:hover {
+    background-color: darkred;
+    color: white;
+}
+
+#myLittlePonyImg {
+    width: 100%;
+}

@@ -86,7 +86,33 @@ function divide(numberA, numberB) {
     return numberA / numberB
 }
 
+clearButton.addEventListener("mouseenter", () => {
+    display.innerHTML = "<image src='./images/scaredMyLittlePony.png' id='myLittlePonyImg'>"
+})
+clearButton.addEventListener("mouseleave", () => {
+    display.textContent = displayValue
+})
 
 const calculator = document.querySelector(".calculator")
-console.log(calculator.offsetHeight)
 calculator.style.width = `${+calculator.offsetHeight * 0.6}px`
+
+const runAwayButton = document.querySelector("#runAwayButton")
+runAwayButton.addEventListener("click", () => {
+    document.querySelectorAll("button").forEach((button) => {
+        button.style.position = "absolute"
+        button.style.top = `${Math.random() * 1000}px`
+        button.style.left = `${Math.random() * 1000}px` 
+    })
+    calculator.style.backgroundImage = "url(./images/satan.webp)"
+})
+
+const HTMLdocument = document.querySelector("html")
+
+runAwayButton.addEventListener("mouseenter", () => {
+    HTMLdocument.style.backgroundColor = "black"
+    HTMLdocument.style.color = "white"
+})
+runAwayButton.addEventListener("mouseleave", () => {
+    HTMLdocument.style.backgroundColor = "white"
+    HTMLdocument.style.color = "black"
+})
