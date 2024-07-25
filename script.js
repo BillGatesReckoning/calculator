@@ -85,3 +85,8 @@ function multiply(numberA, numberB) {
 function divide(numberA, numberB) {
     return numberA / numberB
 }
+
+
+const calculator = document.querySelector(".calculator")
+console.log(calculator.offsetHeight)
+calculator.style.width = `${+calculator.offsetHeight * 0.6}px`
