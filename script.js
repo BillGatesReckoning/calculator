@@ -119,25 +119,26 @@ clearButton.addEventListener("mouseleave", () => {
 const calculator = document.querySelector(".calculator")
 calculator.style.width = `${+calculator.offsetHeight * 0.6}px`
 
+const allButtons = document.querySelectorAll("button")
+
 const cursedButton = document.querySelector("#cursedButton")
 cursedButton.addEventListener("click", () => {
-    document.querySelectorAll("button").forEach((button) => {
+    allButtons.forEach((button) => {
         button.style.position = "absolute"
         button.style.top = `${Math.random() * 1000}px`
         button.style.left = `${Math.random() * 1000}px` 
+        button.style.backgroundColor = "darkred"
     })
     calculator.style.backgroundImage = "url(./images/satan.webp)"
-    HTMLdocument.style.backgroundColor = "black"
+    HTMLdocument.style.backgroundImage = "url(./images/hellBackground.webp)"
     cursedButton.remove()
 })
 
 const HTMLdocument = document.querySelector("html")
 
 cursedButton.addEventListener("mouseenter", () => {
-    HTMLdocument.style.backgroundColor = "black"
-    HTMLdocument.style.color = "white"
+    calculator.style.backgroundColor = "darkred"
 })
 cursedButton.addEventListener("mouseleave", () => {
-    HTMLdocument.style.backgroundColor = "white"
-    HTMLdocument.style.color = "black"
+    calculator.style.backgroundColor = "antiquewhite"
 })
