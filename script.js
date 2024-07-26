@@ -10,6 +10,7 @@ const operatorButtons = document.querySelectorAll(".operatorButton")
 const evaluationButton = document.querySelector(".evaluationButton")
 const clearButton = document.querySelector(".clearButton")
 const display = document.querySelector(".display")
+const backspaceButton = document.querySelector("#backspaceButton")
 
 numberButtons.forEach(button => 
     button.addEventListener("click", (e) => {
@@ -46,6 +47,12 @@ evaluationButton.addEventListener("click", () => {
     operator = ""
     displayValue = +display.textContent
     operatorWorks = true
+})
+
+backspaceButton.addEventListener("click", () => {
+    if (displayValue === "" || containsOperator(displayValue) === true) return
+    displayValue = displayValue.slice(0, -1)
+    display.textContent = displayValue
 })
 
 clearButton.addEventListener("click", () => {
@@ -86,6 +93,22 @@ function divide(numberA, numberB) {
     return numberA / numberB
 }
 
+function containsOperator(string) {
+    if (string.search("+" === -1)) {
+        return false
+    }
+    if (string.search("-" === -1)) {
+        return false
+    }
+    if (string.search("*" === -1)) {
+        return false
+    }
+    if (string.search("/" === -1)) {
+        return false
+    }
+    return true
+}
+
 clearButton.addEventListener("mouseenter", () => {
     display.innerHTML = "<image src='./images/scaredMyLittlePony.png' id='myLittlePonyImg'>"
 })
@@ -96,23 +119,25 @@ clearButton.addEventListener("mouseleave", () => {
 const calculator = document.querySelector(".calculator")
 calculator.style.width = `${+calculator.offsetHeight * 0.6}px`
 
-const runAwayButton = document.querySelector("#runAwayButton")
-runAwayButton.addEventListener("click", () => {
+const cursedButton = document.querySelector("#cursedButton")
+cursedButton.addEventListener("click", () => {
     document.querySelectorAll("button").forEach((button) => {
         button.style.position = "absolute"
         button.style.top = `${Math.random() * 1000}px`
         button.style.left = `${Math.random() * 1000}px` 
     })
     calculator.style.backgroundImage = "url(./images/satan.webp)"
+    HTMLdocument.style.backgroundColor = "black"
+    cursedButton.remove()
 })
 
 const HTMLdocument = document.querySelector("html")
 
-runAwayButton.addEventListener("mouseenter", () => {
+cursedButton.addEventListener("mouseenter", () => {
     HTMLdocument.style.backgroundColor = "black"
     HTMLdocument.style.color = "white"
 })
-runAwayButton.addEventListener("mouseleave", () => {
+cursedButton.addEventListener("mouseleave", () => {
     HTMLdocument.style.backgroundColor = "white"
     HTMLdocument.style.color = "black"
 })
